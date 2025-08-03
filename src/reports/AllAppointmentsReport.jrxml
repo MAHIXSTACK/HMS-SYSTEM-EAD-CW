@@ -1,0 +1,84 @@
+<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.2-31532122640f516c6d17238ae0e41a08113d5ac0  -->
+<jasperReport name="AllAppointmentsReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="edb38e1c-61f9-4901-9ee1-a898f65b7ce6">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL"/>
+	<query language="SQL"><![CDATA[SELECT
+    a.appointment_id,
+    p.name AS patient_name,
+    d.name AS doctor_name,
+    a.appointment_date
+FROM
+    appointments a
+JOIN
+    patients p ON a.patient_id = p.patient_id
+JOIN
+    doctors d ON a.doctor_id = d.doctor_id
+ORDER BY
+    a.appointment_date]]></query>
+	<field name="appointment_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="appointment_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="appointment_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="appointments"/>
+	</field>
+	<field name="patient_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="patient_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="patients"/>
+	</field>
+	<field name="doctor_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="doctor_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="doctors"/>
+	</field>
+	<field name="appointment_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="appointment_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="appointment_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="appointments"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="8772c43a-2967-495d-9399-9422bfda6be3" x="30" y="10" width="514" height="60" fontSize="37.0" bold="false" hTextAlign="Justified">
+			<text><![CDATA[Hospital Management System]]></text>
+		</element>
+	</title>
+	<pageHeader height="45" splitType="Stretch">
+		<element kind="staticText" uuid="0abc8b2f-297f-45d7-8d4d-06c0204626f2" x="220" y="10" width="140" height="35" fontSize="19.0" vTextAlign="Middle">
+			<text><![CDATA[Appointment]]></text>
+		</element>
+	</pageHeader>
+	<columnHeader height="88" splitType="Stretch">
+		<element kind="staticText" uuid="bafa72b3-95c1-4b69-aa79-bf63ab35c0c3" x="0" y="20" width="140" height="30" fontSize="18.0">
+			<text><![CDATA[Appointment ID]]></text>
+		</element>
+		<element kind="staticText" uuid="6cec6bdf-7877-41b3-86be-cd5a738f047e" x="170" y="20" width="100" height="30" fontSize="18.0">
+			<text><![CDATA[Patient ID]]></text>
+		</element>
+		<element kind="staticText" uuid="ba9409a4-5f94-44db-9da6-c28c55b97cf3" x="310" y="20" width="100" height="30" fontSize="18.0">
+			<text><![CDATA[Doctor ID]]></text>
+		</element>
+		<element kind="staticText" uuid="69fc88f2-c9f7-4d30-9b35-e66725434c44" x="430" y="20" width="110" height="30" fontSize="18.0">
+			<text><![CDATA[Appointment Date]]></text>
+		</element>
+		<element kind="line" uuid="85154baa-0cbe-4a5a-bd4e-8eeadd343011" x="0" y="60" width="570" height="1" direction="BottomUp"/>
+	</columnHeader>
+	<detail>
+		<band height="89" splitType="Stretch">
+			<element kind="textField" uuid="ab8bfa0a-13c5-4623-97fe-0dcb30e62162" x="0" y="10" width="140" height="30" fontSize="14.0">
+				<expression><![CDATA[$F{appointment_id}]]></expression>
+			</element>
+			<element kind="textField" uuid="d3546ac1-ba55-459e-80e7-00ecbe1651b2" x="170" y="10" width="110" height="30" fontSize="14.0">
+				<expression><![CDATA[$F{patient_name}
+]]></expression>
+			</element>
+			<element kind="textField" uuid="31251889-6329-4d65-a794-d44c10c3bac6" x="310" y="10" width="100" height="30" fontSize="14.0">
+				<expression><![CDATA[$F{doctor_name}]]></expression>
+			</element>
+			<element kind="textField" uuid="d72671f9-7fa8-42a8-9da3-38a6768fa637" x="430" y="10" width="110" height="30" fontSize="14.0">
+				<expression><![CDATA[$F{appointment_date}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
